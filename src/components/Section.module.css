@@ -19,6 +19,12 @@
   }
 }
 
+.titleCenter {
+  text-align: center;
+  flex: 1; /* This ensures that the title takes the full available space, centering it effectively even when there are other elements in the header */
+}
+
+
 .header {
   display: flex;
   justify-content: space-between;

@@ -1,31 +1,39 @@
-import React from 'react'
-import { Button } from '../components/Button'
-import { Section } from '../components/Section'
-import { Icon } from '../components/Icon'
-import styles from './Home.module.css'
+import React from 'react';
+import { Button } from '../components/Button';
+import { Section } from '../components/Section';
+import { Icon } from '../components/Icon';
+import styles from './Home.module.css';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 export function Home() {
+  const navigate = useNavigate();
+
+  const handlePlayClick = () => {
+    navigate('/flip');
+  };
+
   return (
     <div className={styles.banner}>
       <Section>
-        <h2>
-          Gamba Demo
-        </h2>
-        <p style={{ wordWrap: 'break-word' }}>
-          A decentralized, provably-fair casino built on Gamba.
+        <img src="logo.png" alt="Logo" style={{ maxWidth: '200px', margin: '0 auto' }} />
+        <p >
+          A on-chain, provably-fair app built on Gamba.
         </p>
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <Button
-            as="a"
-            color="white"
-            href="https://gamba.so"
-            target="_blank"
-            icon={<Icon.ExternalLink />}
-          >
-            Learn more
-          </Button>
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', margin: '0 auto' }}>
+        <Button
+          as="a"
+          color="white" 
+          onClick={handlePlayClick}
+          icon={<Icon.ExternalLink />}
+        >
+          Play
+        </Button>
+
         </div>
       </Section>
     </div>
-  )
+  );
 }

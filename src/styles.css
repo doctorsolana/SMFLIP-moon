@@ -130,12 +130,12 @@ a {
 
 .gamba-game-button.primary {
   min-width: 100px;
-  background: #a079ff;
-  color: white;
+  background: #5dd6a4;
+  color: rgb(0, 0, 0);
 }
 
 .gamba-game-button.primary:hover {
-  background: #9468ff;
+  background: #55c496;
 }
 
 .gamba-game-ui-group {

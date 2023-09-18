@@ -4,16 +4,17 @@ import { Button } from './Button'
 import { Icon } from './Icon'
 
 interface SectionProps extends React.PropsWithChildren {
-  title?: JSX.Element | string
-  stuff?: JSX.Element | string
+  title?: JSX.Element | string;
+  stuff?: JSX.Element | string;
+  centerTitle?: boolean;
 }
 
-export function Section({ title, stuff, children }: SectionProps) {
+export function Section({ title, stuff, centerTitle, children }: SectionProps) {
   return (
     <section className={styles.section}>
       {(title || stuff) && (
         <div className={styles.header}>
-          <h2>
+          <h2 className={centerTitle ? styles.titleCenter : ''}>
             {title}
           </h2>
           <div>
@@ -23,8 +24,9 @@ export function Section({ title, stuff, children }: SectionProps) {
       )}
       {children}
     </section>
-  )
+  );
 }
+
 
 export function SlideSection({ stuff, children, ...rest }: SectionProps) {
   const ref = React.useRef<HTMLDivElement>(null!)

@@ -8,8 +8,7 @@ export const Header: React.FC<React.PropsWithChildren> = ({ children }) => {
       <div>
         <div style={{ display: 'flex', gap: '10px' }}>
           <NavButton variant="ghost" className={styles.logo} to="/">
-            <img src="/logo.svg" height="20px" />
-            <span className={styles.title}>Gamba Demo</span>
+            <img src="/logo.png"/>
           </NavButton>
         </div>
         <div style={{ display: 'flex', gap: '10px' }}>

@@ -20,22 +20,25 @@
 }
 
 .color-default {
-  --bg-col-solid: #1e222f;
-  --bg-col-solid-hover: #212738;
+  --bg-col-solid: #5dd6a4;
+  --bg-col-solid-hover: #ffffff;
   --bg-col-outlined: #21273866;
   --bg-col-outlined-hover: #6666ff66;
   --col-outlined: white;
-  --col-solid: white;
+  --col-solid: rgb(0, 0, 0);
 }
 
 .color-white {
-  --bg-col-solid: #FFFFFFDF;
+  --bg-col-solid: #5dd6a4;
   --bg-col-solid-hover: #FFFFFF;
   --bg-col-outlined: #FFFFFF33;
   --bg-col-outlined-hover: #FFFFFF99;
   --col-outlined: white;
   --col-solid: black;
+  box-shadow: 0 0 30px #5dd6a4; /* Adding glow effect */
 }
+
+
 
 .variant-solid {
   background: var(--bg-col-solid);

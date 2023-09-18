@@ -72,7 +72,7 @@ export function RecentPlays() {
   const events = useGambaEvents()
 
   return (
-    <Section title="Recent Plays">
+    <Section title="Recent Plays" centerTitle>
       <div className={styles.container}>
         {events.map((transaction) => (
           <RecentPlay

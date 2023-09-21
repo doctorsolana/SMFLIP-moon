@@ -23,8 +23,12 @@
   height: 100%;
   position: relative;
   transition: height .2s ease;
-  background: #0c0c11;
+  background-image: linear-gradient(0deg, var(--bg-color) 0%, #04051700 100%), url(/banner.jpg);
+  
+  background-position: center; 
+  background-repeat: no-repeat; 
 }
+
 
 .controls {
   width: 100%;
@@ -105,3 +109,4 @@
 .splash {
   background: #0c0c11;
 }
+

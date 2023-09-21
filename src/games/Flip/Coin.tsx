@@ -3,22 +3,23 @@ import { useFrame } from '@react-three/fiber'
 import React from 'react'
 import { Group } from 'three'
 
-import TEXTURE_HEADS from './heads.png'
-import TEXTURE_TAILS from './tails.png'
+import TEXTURE_HEADS from './solarmoon.png'
+import TEXTURE_TAILS from './solarmoon.png'
 
 function CoinModel() {
-  const model = useGLTF('/Coin.glb')
+  const model = useGLTF('/Mooon3.glb')
   const [heads, tails] = useTexture([TEXTURE_HEADS, TEXTURE_TAILS])
   return (
     <>
-      <primitive object={model.nodes.Coin}>
+      {/* for coin: <primitive object={model.nodes.Coin} scale={1}> */}
+      <primitive object={model.nodes.Sphere} scale={1.5}>
       </primitive>
-      <mesh position-z={.3}>
+      <mesh position-z={1.5}>
         <planeGeometry args={[1.3, 1.3, 1.3]} />
         <meshStandardMaterial transparent map={heads} />
       </mesh>
       <group rotation-y={Math.PI}>
-        <mesh position-z={.3}>
+        <mesh position-z={1.5}>
           <planeGeometry args={[1.3, 1.3, 1.3]} />
           <meshStandardMaterial transparent map={tails} />
         </mesh>

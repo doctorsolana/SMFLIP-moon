@@ -7,7 +7,7 @@ import TEXTURE_HEADS from './solarmoon.png'
 import TEXTURE_TAILS from './solarmoon.png'
 
 function CoinModel() {
-  const model = useGLTF('/Mooon3.glb')
+  const model = useGLTF('/Moon4.glb')
   const [heads, tails] = useTexture([TEXTURE_HEADS, TEXTURE_TAILS])
   return (
     <>

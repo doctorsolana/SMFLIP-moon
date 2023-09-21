@@ -12,19 +12,21 @@ import SOUND_LOSE from "./lose.mp3"
 import SOUND_WIN from "./win.mp3"
 
 const SIDES = {
-  Heads: [2, 0],
-  Tails: [0, 2],
+  Dark: [2, 0],
+  Bright: [0, 2],
 };
 
 const WAGER_OPTIONS = [0.05, 0.1, 0.5, 1, 3].map(solToLamports)
 
 export default function Flip() {
-  const gamba = useGamba();
+  const gamba = useGamba()
   const [flipping, setFlipping] = React.useState(false)
   const [win, setWin] = React.useState(false)
   const [resultIndex, setResultIndex] = React.useState(0)
   const [wager, setWager] = React.useState(WAGER_OPTIONS[0])
-  const [selectedButton, setSelectedButton] = React.useState<string | null>(null)
+  const [selectedButton, setSelectedButton] = React.useState<string | null>(
+    null
+  );
 
   const sounds = GameUi.useSounds({
     coin: SOUND_COIN,
@@ -46,7 +48,7 @@ export default function Flip() {
 
       const result = await res.result()
 
-      const win = result.payout > 0
+      const win = result.payout > 0;
 
       setResultIndex(result.resultIndex)
 
@@ -61,24 +63,15 @@ export default function Flip() {
       setFlipping(false)
       setSelectedButton(null)
     }
+  }
+
+  const setWagerValue = (value: number) => {
+    setWager(value);
   };
+  
 
   return (
     <>
-      <GameUi.Controls disabled={flipping}>
-        <GameUi.Select.Root
-          value={wager}
-          label="Wager"
-          onChange={(wager) => setWager(wager)}
-          format={() => formatLamports(wager)}
-        >
-          {WAGER_OPTIONS.map((wager) => (
-            <GameUi.Select.Option key={wager} value={wager}>
-              {formatLamports(wager)}
-            </GameUi.Select.Option>
-          ))}
-        </GameUi.Select.Root>
-      </GameUi.Controls>
       <div className="canvas-container">
         <Canvas
           linear
@@ -120,19 +113,34 @@ export default function Flip() {
           />
         </Canvas>
         <div className="button-container">
-        <button
-          className={`big-button bright ${selectedButton === 'Heads' ? 'selected' : ''}`}
-          onClick={() => play(SIDES.Heads, 'Heads')}
-        >
-          Bright
-        </button>
-        <button
-          className={`big-button dark ${selectedButton === 'Tails' ? 'selected' : ''}`}
-          onClick={() => play(SIDES.Tails, 'Tails')}
-        >
-          Dark
-        </button>
-      </div>
+          <button
+            className={`big-button bright ${
+              selectedButton === "Bright" ? "selected" : ""
+            }`}
+            onClick={() => play(SIDES.Bright, "Bright")}
+          >
+            Bright
+          </button>
+          <button
+            className={`big-button dark ${
+              selectedButton === "Dark" ? "selected" : ""
+            }`}
+            onClick={() => play(SIDES.Dark, "Dark")}
+          >
+            Dark
+          </button>
+        </div>
+        <div className="wager-container">
+          {WAGER_OPTIONS.map((wagerValue, index) => (
+            <button
+              key={index}
+              className={`wager-button ${wager === wagerValue ? "wager-selected" : ""}`}
+              onClick={() => setWagerValue(wagerValue)}
+            >
+              {formatLamports(wagerValue)}
+            </button>
+          ))}
+        </div>
       </div>
     </>
   );
